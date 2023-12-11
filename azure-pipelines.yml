@@ -2,7 +2,7 @@ trigger:
 - main
 
 pool:
-  name: AWS_AGENT
+  name: Default
 
 steps:
 - script: dotnet restore
