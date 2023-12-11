@@ -1,0 +1,15 @@
+trigger:
+- main
+
+pool:
+  name: AWS_AGENT
+
+steps:
+- script: dotnet restore
+  displayName: 'Restore dependencies'
+
+- script: dotnet build --configuration Release
+  displayName: 'Build project'
+
+- script: dotnet run --project HelloWorld/HelloWorld.csproj
+  displayName: 'Run application'
