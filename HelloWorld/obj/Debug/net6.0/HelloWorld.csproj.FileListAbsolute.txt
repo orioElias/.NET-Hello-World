@@ -1,0 +1,15 @@
+/home/ori/Desktop/.NetApp/HelloWorld/bin/Debug/net6.0/HelloWorld
+/home/ori/Desktop/.NetApp/HelloWorld/bin/Debug/net6.0/HelloWorld.deps.json
+/home/ori/Desktop/.NetApp/HelloWorld/bin/Debug/net6.0/HelloWorld.runtimeconfig.json
+/home/ori/Desktop/.NetApp/HelloWorld/bin/Debug/net6.0/HelloWorld.dll
+/home/ori/Desktop/.NetApp/HelloWorld/bin/Debug/net6.0/HelloWorld.pdb
+/home/ori/Desktop/.NetApp/HelloWorld/obj/Debug/net6.0/HelloWorld.csproj.AssemblyReference.cache
+/home/ori/Desktop/.NetApp/HelloWorld/obj/Debug/net6.0/HelloWorld.GeneratedMSBuildEditorConfig.editorconfig
+/home/ori/Desktop/.NetApp/HelloWorld/obj/Debug/net6.0/HelloWorld.AssemblyInfoInputs.cache
+/home/ori/Desktop/.NetApp/HelloWorld/obj/Debug/net6.0/HelloWorld.AssemblyInfo.cs
+/home/ori/Desktop/.NetApp/HelloWorld/obj/Debug/net6.0/HelloWorld.csproj.CoreCompileInputs.cache
+/home/ori/Desktop/.NetApp/HelloWorld/obj/Debug/net6.0/HelloWorld.dll
+/home/ori/Desktop/.NetApp/HelloWorld/obj/Debug/net6.0/refint/HelloWorld.dll
+/home/ori/Desktop/.NetApp/HelloWorld/obj/Debug/net6.0/HelloWorld.pdb
+/home/ori/Desktop/.NetApp/HelloWorld/obj/Debug/net6.0/HelloWorld.genruntimeconfig.cache
+/home/ori/Desktop/.NetApp/HelloWorld/obj/Debug/net6.0/ref/HelloWorld.dll
