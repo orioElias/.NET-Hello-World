@@ -7,4 +7,14 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+
+  <PropertyGroup>
+    <Version>1.0.0</Version>
+    <Authors>Ori</Authors>
+    <Company>OriElias</Company>
+    <PackageId>HelloWorld</PackageId>
+    <Description>A simple hello world application in .NET</Description>
+    <RepositoryUrl>https://github.com/orioElias/.NET-Hello-World</RepositoryUrl>
+  </PropertyGroup>
+
 </Project>
