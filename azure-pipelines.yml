@@ -11,5 +11,14 @@ steps:
 - script: dotnet build HelloWorld/HelloWorld.csproj --configuration Release
   displayName: 'Build project'
 
+- script: dotnet pack HelloWorld/HelloWorld.csproj --configuration Release --output nupkgs
+  displayName: 'Pack NuGet package'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: 'HelloWorld/bin/Release'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
+
 - script: dotnet run --project HelloWorld/HelloWorld.csproj
   displayName: 'Run application'
