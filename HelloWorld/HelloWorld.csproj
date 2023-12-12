@@ -9,7 +9,8 @@
 
 
   <PropertyGroup>
-    <Version>1.0.1</Version>
+    <VersionPrefix>1.0.</VersionPrefix>
+    <VersionSuffix>0</VersionSuffix>
     <Authors>Ori</Authors>
     <Company>OriElias</Company>
     <PackageId>HelloWorld</PackageId>
