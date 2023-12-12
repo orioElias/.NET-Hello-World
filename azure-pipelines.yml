@@ -20,5 +20,8 @@ steps:
     ArtifactName: 'drop'
     publishLocation: 'Container'
 
+- script: dotnet nuget push "HelloWorld/bin/Release/*.nupkg" --source "OriElias" --api-key az
+  displayName: 'Push package to Azure Artifacts'
+
 - script: dotnet run --project HelloWorld/HelloWorld.csproj
   displayName: 'Run application'
