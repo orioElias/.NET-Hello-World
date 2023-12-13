@@ -5,11 +5,24 @@ pool:
   name: Default
 
 steps:
+- task: SonarQubePrepare@4
+  inputs:
+    SonarQube: 'HelloWorldProject_SonarQube'
+    scannerMode: 'MSBuild'
+    projectKey: 'Hello_World_Project_Hello_World_Project_AYxio5OHkVImKS8uzBdC'
+    projectName: 'Hello World Project'
+
 - script: dotnet restore HelloWorld/HelloWorld.csproj /p:Version=1.0.$(Build.BuildId)
   displayName: 'Restore dependencies'
 
 - script: dotnet build HelloWorld/HelloWorld.csproj --configuration Release /p:Version=1.0.$(Build.BuildId)
   displayName: 'Build project'
+
+- task: SonarQubeAnalyze@4
+
+- task: SonarQubePublish@4
+  inputs:
+    pollingTimeoutSec: '300'
 
 - script: |
     echo "Current Version: 1.0.$(Build.BuildId)"
