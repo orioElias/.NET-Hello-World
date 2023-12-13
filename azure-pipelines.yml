@@ -5,21 +5,15 @@ pool:
   name: Default
 
 steps:
-- script: echo "##vso[build.updatebuildnumber]1.0.$(Build.BuildNumber)"
-  displayName: 'Update Build Number'
-
-- script: dotnet restore HelloWorld/HelloWorld.csproj
+- script: dotnet restore HelloWorld/HelloWorld.csproj /p:Version=1.0.$(Build.BuildId)
   displayName: 'Restore dependencies'
 
 - script: dotnet build HelloWorld/HelloWorld.csproj --configuration Release /p:Version=1.0.$(Build.BuildId)
   displayName: 'Build project'
 
 - pwsh: |
-    [xml]$csproj = Get-Content 'HelloWorld/HelloWorld.csproj'
-    $version = $csproj.Project.PropertyGroup.VersionPrefix + "$(Build.BuildId)"
-    Write-Host "Current Version: $version"
+    Write-Host "Current Version: 1.0.$(Build.BuildId)"
   displayName: 'Print Version'
-
 
 - script: dotnet pack HelloWorld/HelloWorld.csproj --configuration Release --output nupkgs /p:Version=1.0.$(Build.BuildId)
   displayName: 'Pack NuGet package'
