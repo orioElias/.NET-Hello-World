@@ -17,7 +17,10 @@ steps:
 
 - script: echo $NVM_DIR
   displayName: 'Check NVM_DIR'
-
+  
+- script: |
+    cat /home/ubuntu/myagent/WorkDir/_tasks/SonarQubePrepare_15b84ca1-b62f-4a2a-a403-89b77a063157/4.36.0/node_modules/hpagent/index.js
+  displayName: 'Debug SonarQubePrepare JavaScript'
 
 - task: SonarQubePrepare@4
   inputs:
@@ -25,6 +28,8 @@ steps:
     scannerMode: 'MSBuild'
     projectKey: 'Hello_World_Project_Hello_World_Project_AYxio5OHkVImKS8uzBdC'
     projectName: 'Hello World Project'
+  # Add the version field with the appropriate version number
+  version: 4.36.0
 
 - script: dotnet restore HelloWorld/HelloWorld.csproj /p:Version=1.0.$(Build.BuildId)
   displayName: 'Restore dependencies'
