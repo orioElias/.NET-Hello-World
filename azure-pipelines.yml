@@ -11,7 +11,8 @@ steps:
 - script: dotnet build HelloWorld/HelloWorld.csproj --configuration Release /p:Version=1.0.$(Build.BuildId)
   displayName: 'Build project'
 
-- script: echo "Current Version: 1.0.$(Build.BuildId)"
+- script: |
+    echo "Current Version: 1.0.$(Build.BuildId)"
   displayName: 'Print Version'
 
 - script: dotnet pack HelloWorld/HelloWorld.csproj --configuration Release --output nupkgs /p:Version=1.0.$(Build.BuildId)
