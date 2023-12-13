@@ -5,9 +5,7 @@ pool:
   name: Default
 
 steps:
-- script: npm cache clean --force
-  displayName: 'Clear Node.js Cache'
- 
+
 - task: SonarQubePrepare@5
   inputs:
     SonarQube: 'HelloWorldProject_SonarQube'
