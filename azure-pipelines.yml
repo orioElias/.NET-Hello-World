@@ -8,7 +8,8 @@ steps:
 - script: |
     echo Installing sonarScanner tool
     dotnet tool install --global dotnet-sonarscanner
-
+    export PATH="$PATH:$HOME/.dotnet/tools"
+    
     echo Start Scanner
     dotnet-sonarscanner begin /k:"Hello_World_Project_Hello_World_Project_AYxio5OHkVImKS8uzBdC" /d:sonar.host.url="http://18.197.65.92:9000" /d:sonar.login="sqa_31544eab9ab4db6d9aa773d388879ba8d787d685"
   displayName: 'Install Sonar Tools and Start Scanner'
