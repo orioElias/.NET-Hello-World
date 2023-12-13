@@ -19,12 +19,6 @@ steps:
   displayName: 'Build project'
 
 - task: SonarQubeAnalyze@5
-  inputs:
-    scannerMode: 'MSBuild'
-    projectKey: 'Hello_World_Project_Hello_World_Project_AYxio5OHkVImKS8uzBdC'
-    projectName: 'Hello World Project'
-    extraProperties: |
-      sonar.java.binaries=**/* 
 
 - task: SonarQubePublish@5
   inputs:
