@@ -5,6 +5,9 @@ pool:
   name: Default
 
 steps:
+- script: |
+    echo "##vso[task.setvariable variable=SONAR_SCANNER_OPTS]-X"
+  displayName: 'Set SonarQube Verbose Logging'
 
 - task: SonarQubePrepare@5
   inputs:
