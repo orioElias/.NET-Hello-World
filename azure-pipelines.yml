@@ -5,7 +5,7 @@ pool:
   name: Default
 
 steps:
-- script: echo "##vso[build.updatebuildnumber]1.0.$(Build.BuildId)"
+- script: echo "##vso[build.updatebuildnumber]1.0.$(Build.BuildNumber)"
   displayName: 'Update Build Number'
 
 - script: dotnet restore HelloWorld/HelloWorld.csproj
