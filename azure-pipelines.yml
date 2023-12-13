@@ -8,7 +8,7 @@ steps:
 - script: npm cache clean --force
   displayName: 'Clear Node.js Cache'
  
-- task: SonarQubePrepare@4
+- task: SonarQubePrepare@5
   inputs:
     SonarQube: 'HelloWorldProject_SonarQube'
     scannerMode: 'MSBuild'
@@ -21,9 +21,9 @@ steps:
 - script: dotnet build HelloWorld/HelloWorld.csproj --configuration Release /p:Version=1.0.$(Build.BuildId)
   displayName: 'Build project'
 
-- task: SonarQubeAnalyze@4
+- task: SonarQubeAnalyze@5
 
-- task: SonarQubePublish@4
+- task: SonarQubePublish@5
   inputs:
     pollingTimeoutSec: '300'
 
