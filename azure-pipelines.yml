@@ -5,23 +5,9 @@ pool:
   name: Default
 
 steps:
-- script: |
-    export NVM_DIR="$HOME/.nvm"
-    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-    nvm use 16
-  displayName: 'Use NVM and Set Node.js Version'
-
-- script: node --version
-  displayName: 'Check Node.js Version'
-
-- script: echo $NVM_DIR
-  displayName: 'Check NVM_DIR'
-  
-- script: |
-    cat /home/ubuntu/myagent/WorkDir/_tasks/SonarQubePrepare_15b84ca1-b62f-4a2a-a403-89b77a063157/4.36.0/node_modules/hpagent/index.js
-  displayName: 'Debug SonarQubePrepare JavaScript'
-
+- script: npm cache clean --force
+  displayName: 'Clear Node.js Cache'
+ 
 - task: SonarQubePrepare@4
   inputs:
     SonarQube: 'HelloWorldProject_SonarQube'
