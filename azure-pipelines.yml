@@ -5,6 +5,9 @@ pool:
   name: Default
 
 steps:
+- script: node --version
+  displayName: 'Check Node.js Version'
+
 - task: SonarQubePrepare@4
   inputs:
     SonarQube: 'HelloWorldProject_SonarQube'
