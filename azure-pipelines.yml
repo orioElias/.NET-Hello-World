@@ -44,16 +44,20 @@ steps:
     git config --global user.name "orioElias"
 
     echo "Tagging build with branch name and version"
-    branch_name=$(echo $(Build.SourceBranch) | awk -F/ '{print $NF}')  # Using $NF to get the last field
+    branch_name=$(echo $(Build.SourceBranch) | awk -F/ '{print $NF}')
     version="1.0.$(Build.BuildId)"
     tag="${branch_name}_$version"
     echo "Creating tag: $tag"
     git tag $tag
 
+    echo "Setting up remote with GitHub PAT"
+    git remote set-url origin https://orioElias:$(GitHub_PAT)@github.com/orioElias/.NET-Hello-World.git
+
     echo "Pushing the tag to the repository"
     git push origin $tag
   displayName: 'Tag build and push'
   condition: eq(variables['Build.SourceBranch'], 'refs/heads/feature-tasks')
+
 
 - script: dotnet pack HelloWorld/HelloWorld.csproj --configuration Release --output nupkgs /p:Version=1.0.$(Build.BuildId)
   displayName: 'Pack NuGet package'
