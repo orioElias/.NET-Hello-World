@@ -14,9 +14,8 @@ steps:
     export PATH="$PATH:$HOME/.dotnet/tools"
     
     echo Start Scanner
-    dotnet-sonarscanner begin /k:"Hello_World_Project_Hello_World_Project_AYxio5OHkVImKS8uzBdC" /d:sonar.host.url="http://172.31.23.61:9000" /d:sonar.login="sqa_31544eab9ab4db6d9aa773d388879ba8d787d685"
+    dotnet-sonarscanner begin /k:"Hello_World_Project_Hello_World_Project_AYxio5OHkVImKS8uzBdC" /d:sonar.host.url="http://172.31.23.61:9000" /d:sonar.login="$(SONARQUBE_TOKEN)"
   displayName: 'Install Sonar Tools and Start Scanner'
-  condition: eq(variables['Build.SourceBranch'], 'refs/heads/sonar-scan')
 
 - script: dotnet restore HelloWorld/HelloWorld.csproj /p:Version=1.0.$(Build.BuildId)
   displayName: 'Restore dependencies'
@@ -27,7 +26,7 @@ steps:
 - script: |
     echo Run Sonar End
     export PATH="$PATH:$HOME/.dotnet/tools"
-    dotnet-sonarscanner end /d:sonar.login="sqa_31544eab9ab4db6d9aa773d388879ba8d787d685"
+    dotnet-sonarscanner end /d:sonar.login="$(SONARQUBE_TOKEN)"
   displayName: 'Collect Sonar results and Upload'
   condition: eq(variables['Build.SourceBranch'], 'refs/heads/sonar-scan')
 
