@@ -45,7 +45,7 @@ steps:
     tag="$branch_name_$version"
     git tag $tag
     # Use the GitHub_PAT secret variable for authentication
-    git push origin $tag --username "oauth2" --password "$(GitHub_PAT)"
+    git push origin $tag --username "orioElias" --password "$(GitHub_PAT)"
   displayName: 'Tag build and push'
   condition: eq(variables['Build.SourceBranch'], 'refs/heads/feature-tasks')
 
