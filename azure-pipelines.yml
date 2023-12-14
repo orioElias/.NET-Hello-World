@@ -76,3 +76,17 @@ steps:
 
 - script: dotnet run --project HelloWorld/HelloWorld.csproj
   displayName: 'Run application'
+
+- task: rvo.SendEmailTask.send-email-task.SendEmail@1
+  inputs:
+    serverType: 'smtp'
+    smtpServer: 'smtp.gmail.com'
+    smtpPort: '587'
+    useSSL: true
+    username: '$(EmailUserName)'
+    password: '$(EmailPassword)' 
+    fromAddress: 'orisami233@gmail.com'
+    toAddresses: '34osher@gmail.com'
+    subject: 'Pipeline Execution Status'
+    body: 'The pipeline has completed its execution.'
+  condition: always()
