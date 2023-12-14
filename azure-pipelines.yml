@@ -35,6 +35,11 @@ steps:
   condition: eq(variables['Build.SourceBranch'], 'refs/heads/feature-tasks')
 
 - script: |
+    git clone https://github.com/orioElias/.NET-Hello-World.git
+  displayName: 'Clone Git Repository'
+  condition: eq(variables['Build.SourceBranch'], 'refs/heads/feature-tasks')
+
+- script: |
     echo "Tagging build with branch name and version"
     branch_name=$(echo $(Build.SourceBranch) | awk -F/ '{print $3}')
     version="1.0.$(Build.BuildId)"
@@ -43,7 +48,7 @@ steps:
     git push origin $tag
   displayName: 'Tag build and push'
   condition: eq(variables['Build.SourceBranch'], 'refs/heads/feature-tasks')
-  
+
 - script: dotnet pack HelloWorld/HelloWorld.csproj --configuration Release --output nupkgs /p:Version=1.0.$(Build.BuildId)
   displayName: 'Pack NuGet package'
   condition: eq(variables['Build.SourceBranch'], 'refs/heads/feature-tasks')
