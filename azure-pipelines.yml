@@ -35,20 +35,25 @@ steps:
   condition: eq(variables['Build.SourceBranch'], 'refs/heads/feature-tasks')
 
 - script: |
+    echo "Cloning the repository"
     git clone https://github.com/orioElias/.NET-Hello-World.git
+    cd .NET-Hello-World
+
+    echo "Configuring Git user details"
     git config --global user.email "orisami233@gmail.com"
     git config --global user.name "orioElias"
-    git config --global credential.helper store
+
     echo "Tagging build with branch name and version"
-    branch_name=$(echo $(Build.SourceBranch) | awk -F/ '{print $3}')
+    branch_name=$(echo $(Build.SourceBranch) | awk -F/ '{print $NF}')  # Using $NF to get the last field
     version="1.0.$(Build.BuildId)"
-    tag="$branch_name_$version"
+    tag="${branch_name}_$version"
+    echo "Creating tag: $tag"
     git tag $tag
-    # Use the GitHub_PAT secret variable for authentication
-    git push origin $tag --username "orioElias" --password "$(GitHub_PAT)"
+
+    echo "Pushing the tag to the repository"
+    git push origin $tag
   displayName: 'Tag build and push'
   condition: eq(variables['Build.SourceBranch'], 'refs/heads/feature-tasks')
-
 
 - script: dotnet pack HelloWorld/HelloWorld.csproj --configuration Release --output nupkgs /p:Version=1.0.$(Build.BuildId)
   displayName: 'Pack NuGet package'
