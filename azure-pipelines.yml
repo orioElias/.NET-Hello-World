@@ -77,7 +77,7 @@ steps:
 - script: dotnet run --project HelloWorld/HelloWorld.csproj
   displayName: 'Run application'
 
-- task: rvo.SendEmailTask.send-email-task.SendEmail@1
+- task: SendEmail@1
   inputs:
     serverType: 'smtp'
     smtpServer: 'smtp.gmail.com'
